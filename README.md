@@ -22,4 +22,4 @@ This Helm chart installs the OWASP Threat Dragon application, including its UI a
 ```bash
 helm repo add threat-dragon https://github.com/MatthewLaitinen/threatdragon-helm
 helm repo update
-helm install my-threat-dragon threat-dragon/owasp-threat-dragon
+helm install my-threat-dragon ./threatdragon-helm/threat-dragon
