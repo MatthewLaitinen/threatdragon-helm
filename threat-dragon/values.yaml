@@ -99,3 +99,19 @@ tolerations: []
 
 affinity: {}
 
+
+#
+# Adds extra environment variables to deployment
+extraEnvs:
+  # - name: values
+  #   value: value
+  
+#
+# 
+#
+extraEnvsFrom:
+  # - secretRef:
+  #     name: some-secrent-name
+  # - configMapRef:
+  #     name: som-configmap
+  
