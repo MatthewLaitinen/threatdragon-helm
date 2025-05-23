@@ -19,6 +19,9 @@ spec:
       {{- end }}
       labels:
         {{- include "threat-dragon.selectorLabels" . | nindent 8 }}
+        {{- with .Values.podLabels }}
+        {{- toYaml . | nindent 8 }}
+        {{- end }}
     spec:
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
@@ -50,6 +53,14 @@ spec:
               mountPath: /app/.env
               subPath: .env
               readOnly: true
+        {{- with .Values.extraEnvsFrom }}
+          envFrom:
+            {{- toYaml . | nindent 12  }}    
+        {{- end }}      
+        {{- with .Values.extraEnvs }}
+          env:
+            {{- toYaml . | nindent 12  }}          
+        {{- end }}      
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       volumes:
